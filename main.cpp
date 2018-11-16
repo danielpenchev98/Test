@@ -247,5 +247,57 @@ int main()
     q13.AddOption("Chrez stekoviq ukazatel", -1);
     q13.AddOption("Chrez adresnoto pole na operanda v koda na instrukciqta", 1);
     exam.push_back(q13);
+
+    //random
+    Question q14("Superskalaren procesor obrabotva dva instrukcionni potoka(ot prosti i slojni instrukcii)Koq ot izbroenite fazi na razrabotka e obshta i za dvata potoka?");
+    q14.AddOption("Izvlichane", 1);
+    q14.AddOption("Izpalnenie", -1);
+    q14.AddOption("Zapis na rezultata", -1);
+    q14.AddOption("Dekodirane", -1);
+    exam.push_back(q14);
+
+    //komp arch
+	Question u1("Ot koi faktori zavisi proizvoditelnostta na komputurnite sistemi?");
+	u1.AddOption("Ot vremeto za dostup do registrirane", 0);
+	u1.AddOption("Arhitekturata i tehnologiqta", 1);
+	u1.AddOption("Ot taktovata 4estota", 0);
+    exam.push_back(u1);
+
+	Question u2("Edinicata za izmervane na proizvoditelnostta MIPS za supostavqne na ednotipni procesorni arhitekturi se osnovava na:");
+	u2.AddOption("Broi operacii s operandi ot virtualnata pamet", 0);
+	u2.AddOption("Broi operacii s operandi ot kesh pametta", 0);
+	u2.AddOption("Broi operacii s operandi ot glavnata pamet", 1);
+	u2.AddOption("Broi operacii s operandi ot flash-pametta", 0);
+    exam.push_back(u2);
+
+	Question u3("Osnovni proizvoditeli na x86 arhitekturata sa:(Izberete edno ili poveche)");
+	u3.AddOption("IBM", 1);
+	u3.AddOption("Hewlett-Packard", 1);
+	u3.AddOption("Intel", 1);
+	u3.AddOption("Sun Microsystems", 0);
+	u3.AddOption("Advanced Micro Device", 0);
+    exam.push_back(u3);
+
+	Question u4("Za kakvo sluji programniqt broq4 (Izberete edno)");
+	u4.AddOption("Za ukazvane adresa na sledvashtata instrukciq za izpylnenie", 1);
+	u4.AddOption("Za suhranqvane na rezultata ot aritmetichnite operacii izpulnqvani v ALU-to", 0);
+	u4.AddOption("Za ot4itane broq na izpulneniqta na dadena instrukciq ", 0);
+	u4.AddOption("Za ot4itane na procenta pamet zaeman ot izpulnqvashtata se programa", 0);
+    exam.push_back(u4);
+
+	Question u5("Koq e pravilnata definiciq za termina SIMD> (Izberete edno)");
+	u5.AddOption("Single Instruction, Multiple Data", 1);
+	u5.AddOption("Single interrupt, Multiple Distribution", 0);
+	u5.AddOption("Single input, Multiple Distributions", 0);
+	u5.AddOption("Single integration, Multiple Dynamics", 0);
+    exam.push_back(u5);
+
+	Question u6("Koi ot izbroenite tehniki slujat za uveli4avane stepenta na paralelizum po vreme na izpulnenie na programata (izberete edno ili pove4e)");
+	u6.AddOption("nito edno ot poso4enite ", 0);
+	u6.AddOption("Prognozirane posokata na prehodite", 0.25);
+	u6.AddOption("Ednovremenno zarejdane za izpulnenie na nqkolko instrukcii i dinami4no planirane", 0.25);
+	u6.AddOption("Otkrivane i premahvane na zavisimosti po danni pri kompilirane", 0.25);
+	u6.AddOption("Reorganizaciq na ciklite po takuv na4in, 4e wsqka iteraciq w polu4eniq kod da se sustoi ot instrukcii, koito sa izbrani ot razli4ni iteracii na purvona4alniq cikul(loop unrolling)", 0.25);
+    exam.push_back(u6);
     return 0;
 }
