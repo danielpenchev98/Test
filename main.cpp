@@ -94,7 +94,7 @@ int main()
     d3.AddOption("tag,mnojestwo,duma", 0);//verniqt
     exam.push_back(d3);
 
-    Question d4("Koi vid pameti sa po-burzi ot Cache pametite(izberete edno)?");
+    Question d4("Koy vid pameti sa po-burzi ot Cache pametite(izberete edno)?");
     d4.AddOption("Registrite", 0);//tova e verniqt otgovor
     d4.AddOption("Flash pametite", 0);
     d4.AddOption("Glavnata pamet", 0);
@@ -248,6 +248,34 @@ int main()
     q13.AddOption("Chrez adresnoto pole na operanda v koda na instrukciqta", 1);
     exam.push_back(q13);
 
+    //pipelining
+    Question u7("Poso4ete pri konveyernata obrabotka na koq ot dadenite instrukcii posledovatelnostti vuznikvat hazart ot tipa write-after-read");
+    u7.AddOption("ADD R3, R2, R1; R3 = R2 + R1", -1);
+    u7.AddOption("ADD R3, R2, R1; R3=R2+R1  SUB R2, R3, 1; R2=R3-1  ADD R3, R2, R5; R3 = R2+R5", 1);
+    u7.AddOption("ADD R3, R4, R5 SUB R2, R2, 1 BEQ R2, R0, L1", -1);
+    exam.push_back(u7);
+
+    Question u8("Znaeiki, 4e uskorenieto e pravoproporcionalno na broq fazi na konveyera, zasto realno polu4enoto uskorenie e po-malko v sravnenie s teoreti4no dostijimoto?");
+    u8.AddOption("Zaradi hazartite", 0);
+    u8.AddOption("Zaradi po-visokata patentnost za individualnite instrukcii", 0);
+    u8.AddOption("Zaradi vremeto neobhodimo za zapulvane na konveyera", 0);
+    exam.push_back(u8);
+
+    Question u9("Razdelqneto na instrukciite na otdelni fazi na obrabotka e harakterno za:(izberete edno ili poveche)");
+    u9.AddOption("razpredelenata obrabotka", 0);
+    u9.AddOption("paralelnata obrabotka", 0);
+    u9.AddOption("sistemnata obrabotka", 0);
+    u9.AddOption("konveyernata obrabotka", 0);
+    u9.AddOption("poddurjaneto na paralelizum na nivo instrukcii", 0);
+    exam.push_back(u9);
+
+    Question u10("Kolko mashinni cikula shte sa neobhodimi za konveyerna obrabotka na 1500 instrukcii v 5-fazen lineen instrukcionen konveyer?");
+    u10.AddOption("1505", -1);
+    u10.AddOption("7500", -1);
+    u10.AddOption("18", -1);
+    u10.AddOption("1504", 1);
+    exam.push_back(u10);
+
     //random
     Question q14("Superskalaren procesor obrabotva dva instrukcionni potoka(ot prosti i slojni instrukcii)Koq ot izbroenite fazi na razrabotka e obshta i za dvata potoka?");
     q14.AddOption("Izvlichane", 1);
@@ -255,6 +283,33 @@ int main()
     q14.AddOption("Zapis na rezultata", -1);
     q14.AddOption("Dekodirane", -1);
     exam.push_back(q14);
+
+    Question q15("Kakvo e prednaznachenieto na mehanizmite za zashtita na pametta?");
+    q15.AddOption("Da ne dopuskat modificirane na sistemniq softuer ot prilojeniq", -1);
+    q15.AddOption("Da ogranichavat dostupa do suhranqvanata v sistemata informaciq", -1);
+    q15.AddOption("Da otkrivat greshki pri adresiraneto predi izvurshvaneto na nerazreshen dostup", -1);
+    q15.AddOption("Da organizirat dostupa do opredeleni segmenti ili stranici", 1);
+    exam.push_back(q15);
+
+    Question q16("Shinata PCI v procesornata arhitektura se qvqva most mejdu:");
+    q16.AddOption("shina EISA i periferiqta", 1);
+    q16.AddOption("sistemnata shina na mikroprocesora i shinata EISA", -1);
+    q16.AddOption("sistemnata shina na mikroprocesora i osnovnata pamet", -1);
+    q16.AddOption("mikroprocesora i kesh pametta L2", -1);
+    exam.push_back(q16);
+
+    Question q17("Koq/koi ot izbroenite shini ne sa chast ot sistemnata shina?");
+    q17.AddOption("Shina za danni", -1);
+    q17.AddOption("Shina za logicheski signali", 1);
+    q17.AddOption("Kontrolna shina", -1);
+    q17.AddOption("Adresna shina", -1);
+    exam.push_back(q17);
+
+    Question q18("V rejim na direkten dostap do pametta, upravlenieto na obmena se poema ot:");
+    q18.AddOption("Ustroystvoto za vhod/izhod", 1);
+    q18.AddOption("Procesora", -1);
+    q18.AddOption("Glavnata pamet", -1);
+    exam.push_back(q18);
 
     //komp arch
 	Question u1("Ot koi faktori zavisi proizvoditelnostta na komputurnite sistemi?");
@@ -299,5 +354,6 @@ int main()
 	u6.AddOption("Otkrivane i premahvane na zavisimosti po danni pri kompilirane", 0.25);
 	u6.AddOption("Reorganizaciq na ciklite po takuv na4in, 4e wsqka iteraciq w polu4eniq kod da se sustoi ot instrukcii, koito sa izbrani ot razli4ni iteracii na purvona4alniq cikul(loop unrolling)", 0.25);
     exam.push_back(u6);
+
     return 0;
 }
