@@ -53,15 +53,18 @@ void Question::AnswerQuestion()
 {
     char tmp = 'v';
     unsigned tmpToInt;
-    do{
-        std::cin>>tmp;
+    std::cin>>tmp;
         tmpToInt = tmp;
+    do
+    {
         if(tmpToInt<97)
             tmpToInt-=65;
         else
             tmpToInt-=97;
-    m_Score+=m_Answers[tmpToInt].val;
-    }while (tmp != 'q');
+        m_Score+=m_Answers[tmpToInt].val;
+        std::cin>>tmp;
+        tmpToInt = tmp;
+    } while(tmp != 'q');
     std::cout<<"Your result is: "<<m_Score<<'\n';
 }
 int main()
@@ -70,9 +73,9 @@ int main()
 
     //cache memory
     Question d0("Koi ot trite metoda na razpolagane na blokove ot operativnata pamet se implementira nai-lesno(izberete edno)?");
-    d0.AddOption("Direktno supostavqne", 0);
-    d0.AddOption("Pulna asociativnost", 0);
-    d0.AddOption("Mnojestvena asociativnost", 0);
+    d0.AddOption("Direktno supostavqne", 1);
+    d0.AddOption("Pulna asociativnost", -1);
+    d0.AddOption("Mnojestvena asociativnost", -1);
     exam.push_back(d0);
 
     Question d1("Otbelejete nevqrnoto tvurdenie(izberete edno).");
@@ -276,6 +279,69 @@ int main()
     u10.AddOption("1504", 1);
     exam.push_back(u10);
 
+    Question u11("Kak se preodolqvat hazartite v konveyera pri dostup do obshti resursu v instrukcionniq potok?(ibereze edno ili pove4e)");
+    u11.AddOption("4rez prenarejdane na instrukcionniq potok ot kompilatora", 0);
+    u11.AddOption("4rez predskazvane na prehodite v instrukcionniq potok", 0);
+    u11.AddOption("4rez dublirane na kiriti4nite fazi", 0);
+    u11.AddOption("4rez blokirasti tehniki na konveyera za opredeleno vreme i posledovatelna obrabotka", 1);
+    u11.AddOption("4rez preska4ane na kriti4nite fazi", 0);
+    u11.AddOption("4rez vuvejdane na zakusneniq i modifirane ...nata tablica na zaetost na konveyera", 1);
+    exam.push_back(u11);
+
+    Question u12("V instrukcionniq konveyer se izpulnqvat ednovremenno(izberete edno)");
+    u12.AddOption("Prazni instrukcii", 0);
+    u12.AddOption("Instrukcii za usloven i bezusloven prehod", 0);
+    u12.AddOption("Instrukcii v realni fazi", 1);
+    u12.AddOption("Zapisi na danni ot registrite kim procesora", 0);
+    exam.push_back(u12);
+
+    Question u13("Koi ot izbroenite tehniki se izpolzvat pri razreshavaneto na problemi pri konveyernoto izpulnenie na instrukcii s prehod? (izberete edno ili pove4e)");
+    u13.AddOption("Dublirane na konveyernite resursi", 0);
+    u13.AddOption("Mnojestveno predvaritelno izpulvane na instrukcii(ne se 4ete)", 1);
+    u13.AddOption("Prediction Look-up Table", 0);
+    u13.AddOption("Izpolzvane na specializirani funkcionalni ustroistva za 4etene na operaciite ili zapis na rezultatite v pametta", 0);
+    u13.AddOption("BTB bufer", 0);
+    exam.push_back(u13);
+
+    Question u14("Kak se preodolqvat konfliktite za pamet pri konveyeriziranoto izpulnenie na instrukcionniq potok?");
+    u14.AddOption("4rez vuvejdane na zakusneniq i modificirane izhodnata tablica na zaetost na konveyera ", 0);
+    u14.AddOption("4rez predskazvane na prehodite v instrukcionniq potok", 1);
+    u14.AddOption("4rez prenarejdane na instrukcionniq potok ot kompilatora", 0);
+    u14.AddOption("4rez izpolzvane na specializirano funkcionalno ustroistvo za 4etene na operaciite ili zapis na rezultati v pametta", 0);
+    exam.push_back(u14);
+
+    Question u15("Poso4ete koi ot izbroenite faktori sa ri4ina za ponijavane na potokovata skorost pri konveyernata obrabotka (izberete edno ili pove4e)");
+    u15.AddOption("Zavisimosti po danni", 1);
+    u15.AddOption("Predskazvane na prehoda v informacionniq potok", 0);
+    u15.AddOption("Temp na inicializaciq na konveyera", 0);
+    u15.AddOption("Konflikti pri dostup na obshti resursi", 1);
+    u15.AddOption("Patentnost na konveyernata obrabotka", 0);
+    u15.AddOption("Izpolzvaemost na funkcionalnite ustroistva po konveyera", 0);
+    u15.AddOption("Anti-zavisimosti po danni", 1);
+    u15.AddOption("Prehodi v informacionniq potok, zasqgashi modificiraneto na programniq broq4", 1);
+    exam.push_back(u15);
+
+    Question u16("Na kakvo se duljat precedurnite zavisimosti");
+    u16.AddOption("Edinstveno na instrukcii za bezusloven prehod", 0);
+    u16.AddOption("Edinstveno na instrukcii za usloven prehod ", 0);
+    u16.AddOption("Instrukcii za bezusloven prehod i instrukcii s osushtestven usloven prehod v instrukcionniq potok na programata", 1);
+    u16.AddOption("Ednovremenniqt .... za edin i susht resurs", 0);
+    exam.push_back(u16);
+
+    Question u17("Ot kakvo predizvikvat resursnite konflikti?");
+    u17.AddOption("Ne dobro planirane na resursite na instrukcionniq konveyer", 0);
+    u17.AddOption("Ednovremenni zaqvki za edni i susti resursi", 1);
+    u17.AddOption("Ot vuzniknali mehuri v konveyera", 0);
+    exam.push_back(u17);
+
+    Question u18("Koi ot izbroenite metodi se izpolzva za reshavane na problema s instrukcionnite hazarti ? (izberete edno ili pove4e)");
+    u18.AddOption("Prezarejdane na konveyera ", 0);
+    u18.AddOption("Uveli4avane razmera na bufernata pamet v otdelnite funkcionalni ustroistva", 0);
+    u18.AddOption("Oprostqvane formata na instrukciite izpolzvani ot programata", 0);
+    u18.AddOption("Razdelqne na instrukcionniq cikul na dopulnitelni fazi na obrabotka", 0);
+    u18.AddOption("Prenarejdane na instrukcii ot kompilatora", 1);
+    exam.push_back(u18);
+
     //random
     Question q14("Superskalaren procesor obrabotva dva instrukcionni potoka(ot prosti i slojni instrukcii)Koq ot izbroenite fazi na razrabotka e obshta i za dvata potoka?");
     q14.AddOption("Izvlichane", 1);
@@ -310,6 +376,45 @@ int main()
     q18.AddOption("Procesora", -1);
     q18.AddOption("Glavnata pamet", -1);
     exam.push_back(q18);
+
+    //ISA
+    Question q19("V zavisimost ot rejima na adresaciq vremeto za izpalnenie na edna procesorna instrukciq moje da varira v znachitelna stepen. Pri koq ot izbroenite podredbi na adresni rejimi vremeto shte se izmenq ot mnogo kratko do mnogo dulgo?");
+    q19.AddOption("prqka, kosvena, neposredstvena", -1);
+    q19.AddOption("neposredstvena, kosvena, prqka", -1);
+    q19.AddOption("neposredstvena, prqka, kosvena", 1);
+    q19.AddOption("kosvena, neposredstvena, prqka", -1);
+    exam.push_back(q19);
+
+    Question q20("Koy ot izbroenite etapi ne e chast ot instrukcionniq cikal?");
+    q20.AddOption("Prenarejdane", 1);
+    q20.AddOption("Izvlichane", -1);
+    q20.AddOption("Izpalnenie", -1);
+    q20.AddOption("Dekodirane", -1);
+    exam.push_back(q20);
+
+    Question q21("koi procesori ot izbroenite procesorni familii se harakterizirat s RISC-arhitektura?");
+    q21.AddOption("SPARC", 1);
+    q21.AddOption("CYRIX", -1);
+    q21.AddOption("ALPHA", -1);
+    q21.AddOption("INTEL", -1);
+    q21.AddOption("AMD", -1);
+    q21.AddOption("MIPS-R4000", 1);
+    q21.AddOption("ARM", 1);
+    exam.push_back(q21);
+
+    Question q22("Kakva sistema instrukcii imat razlichnite familii multiprocesorni arhitekturi?");
+    q22.AddOption("Ednakva", -1);
+    q22.AddOption("Suvpadashta otchasti", 0.5);
+    q22.AddOption("Izcqlo razlichna", 0.5);
+    exam.push_back(q22);
+
+    Question q23("Koy ot izbroenite etapi e chast ot instrukcionniq cikal?");
+    q23.AddOption("Prenarejdane", -1);
+    q23.AddOption("Izvlichane", 0.34);
+    q23.AddOption("Izpalnenie", 0.33);
+    q23.AddOption("Dekodirane", 0.33);
+    exam.push_back(q23);
+
 
     //komp arch
 	Question u1("Ot koi faktori zavisi proizvoditelnostta na komputurnite sistemi?");
@@ -353,7 +458,18 @@ int main()
 	u6.AddOption("Ednovremenno zarejdane za izpulnenie na nqkolko instrukcii i dinami4no planirane", 0.25);
 	u6.AddOption("Otkrivane i premahvane na zavisimosti po danni pri kompilirane", 0.25);
 	u6.AddOption("Reorganizaciq na ciklite po takuv na4in, 4e wsqka iteraciq w polu4eniq kod da se sustoi ot instrukcii, koito sa izbrani ot razli4ni iteracii na purvona4alniq cikul(loop unrolling)", 0.25);
-    exam.push_back(u6);
+    exam
+    push_back(u6);
 
+    for(unsigned i =0; i<exam.size(); ++i)
+        std::swap(exam[Randomize(exam.size())],exam[Randomize(exam.size())]);
+
+    char useless;
+    for(unsigned i =0; i<exam.size(); ++i)
+    {
+        exam[i].AskQuestion();
+        exam[i].AnswerQuestion();
+        std::cin>>useless;
+    }
     return 0;
 }
