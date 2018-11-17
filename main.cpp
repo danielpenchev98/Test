@@ -458,8 +458,7 @@ int main()
 	u6.AddOption("Ednovremenno zarejdane za izpulnenie na nqkolko instrukcii i dinami4no planirane", 0.25);
 	u6.AddOption("Otkrivane i premahvane na zavisimosti po danni pri kompilirane", 0.25);
 	u6.AddOption("Reorganizaciq na ciklite po takuv na4in, 4e wsqka iteraciq w polu4eniq kod da se sustoi ot instrukcii, koito sa izbrani ot razli4ni iteracii na purvona4alniq cikul(loop unrolling)", 0.25);
-    exam
-    push_back(u6);
+    exam.push_back(u6);
 
     for(unsigned i =0; i<exam.size(); ++i)
         std::swap(exam[Randomize(exam.size())],exam[Randomize(exam.size())]);
